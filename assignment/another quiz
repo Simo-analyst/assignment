@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Prompt the user to enter CustomerID, CustomerName, and UnitConsumed
+
+read -p "Enter Customer ID: " customer_id
+read -p "Enter Customer Name: " customer_name
+read -p "Enter Units Consumed: " units_consumed
+
+# Initialize variables for charges per unit and surcharge
+
+charge_per_unit=0
+surcharge=0
+
+# Use if-else statement to determine charges per unit based on units consumed
+if [ $units_consumed -lt 200 ]; then
+    charge_per_unit=120
+elif [ $units_consumed -ge 200 ] && [ $units_consumed -lt 400 ]; then
+    charge_per_unit=150
+elif [ $units_consumed -ge 400 ] && [ $units_consumed -lt 600 ]; then
+    charge_per_unit=180
+else
+    charge_per_unit=200
+fi
+
+# Calculate total bill
+
+total_bill=$(echo "$units_consumed * $charge_per_unit" | bc)
+
+# Display the bill details
+
+echo "Customer ID: $customer_id"
+echo "Customer Name: $customer_name"
+echo "Units Consumed: $units_consumed"
+echo "Charges per Unit: Ksh $charge_per_unit"
+echo "Total Bill: Ksh $total_bill"
+
+		EARIELR ASSIGNMENTS
+1.	WRITING A SHELL SCRPTING SODE TO FIND THE AREA OF A CIRLCE
+
+
+echo -n "Enter the radius of a circle : "
+
+read r
+
+# use formula to get it
+
+area=$(echo "scale=2;3.14 * ($r * $r)" | bc)
+
+# use formula to get it
+
+d=$(echo "scale=2;2 * $r"|bc)
+
+circumference=$(echo "scale=2;3.14 * $d"| bc)
+
+echo "Area of circle is $area"
